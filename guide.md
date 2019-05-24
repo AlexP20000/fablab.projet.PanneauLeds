@@ -23,13 +23,14 @@ Disable the NTP daemon:
 sudo systemctl disable systemd-timesyncd.service
 ```
 
-# Dependencies for the library
+# Installation
+## Dependencies for the library
 ```
 sudo apt install python3-pip
 sudo pip3 install adafruit-circuitpython-neopixel Flask schedule
 ```
 
-# Installation of the Web app
+## Web app
 - We need a WSGI HTTP server:
   ```
   sudo pip3 install gunicorn
