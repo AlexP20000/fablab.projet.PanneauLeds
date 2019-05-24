@@ -7,3 +7,22 @@ This project contains 2 main components:
 - **webapp**: A Web app to control the display from other devices of the local network. It too is written in Python and it uses the Flask framework. 
 
 An [installation guide](guide.md) is available.
+
+# The architecture
+```
+                                   +-----------+
+         HTTP  +----------+  WSGI  |           |
+Client <------>+ Gunicorn +<------>+  Web app  |
+               +----------+        |  (Flask)  |
+                                   |           |
+                                   +-----+-----+
+                                         ^
+                           Python object |
+                                         v
+                         +---------------+-----+
+                         |                     |
+                         |       Library       |
+                         |  (neopixel_matrix)  |
+                         |                     |
+                         +---------------------+
+```
