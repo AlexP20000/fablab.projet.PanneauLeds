@@ -30,7 +30,7 @@ sudo pip3 install adafruit-circuitpython-neopixel Flask schedule
 ```
 
 # Installation of the Web app
-- We need a WSGI HTTP server:
+- We need a WSGI HTTP server:  
   `sudo pip3 install gunicorn`
 - Put the webapp and the neopixel_matrix directories inside `/opt/`
 - Put the systemd service file, `webapp.service`, inside `/etc/systemd/system/`
