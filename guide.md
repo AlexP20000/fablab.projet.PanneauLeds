@@ -30,7 +30,6 @@ sudo pip3 install adafruit-circuitpython-neopixel Flask schedule
 ```
 
 # Installation of the Web app
-<<<<<<< HEAD
 - We need a WSGI HTTP server:
   ```
   sudo pip3 install gunicorn
