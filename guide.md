@@ -19,11 +19,16 @@ The NTP server was blocked on my network so as an alternative, I used `htpdate` 
 Disable the NTP daemon:  
 `sudo systemctl disable systemd-timesyncd.service`
 
-# Dependencies
+# Dependencies for the library
 ```
 sudo apt install python3-pip
 sudo pip3 install adafruit-circuitpython-neopixel Flask schedule
 ```
 
-# TODO
-- Debian automatic updates? If works on Raspbian.
+# Installation of the Web app
+- `sudo pip3 install gunicorn`
+- Put the webapp and the neopixel_matrix directories inside `/opt/`
+- Put the systemd service file, `webapp.service`, inside `/etc/systemd/system/`
+- `sudo systemd daemon-reload`
+- `sudo systemd enable webapp`
+- `sudo systemd start webapp`
