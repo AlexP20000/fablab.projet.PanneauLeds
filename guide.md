@@ -15,9 +15,13 @@ If your WiFi settings changed, you simply redo the steps. On Raspberry Pi,  it i
 
 ## Time server
 The NTP server was blocked on my network so as an alternative, I used `htpdate` which gets the time using HTTP.
-`sudo apt-get install htpdate`  
-Disable the NTP daemon:  
-`sudo systemctl disable systemd-timesyncd.service`
+```
+sudo apt-get install htpdate
+```
+Disable the NTP daemon:
+```
+sudo systemctl disable systemd-timesyncd.service
+```
 
 # Dependencies for the library
 ```
@@ -26,9 +30,13 @@ sudo pip3 install adafruit-circuitpython-neopixel Flask schedule
 ```
 
 # Installation of the Web app
-- `sudo pip3 install gunicorn`
+- We need a WSGI HTTP server:
+  `sudo pip3 install gunicorn`
 - Put the webapp and the neopixel_matrix directories inside `/opt/`
 - Put the systemd service file, `webapp.service`, inside `/etc/systemd/system/`
-- `sudo systemd daemon-reload`
-- `sudo systemd enable webapp`
-- `sudo systemd start webapp`
+- Make the webapp start automatically on boot and start it now:
+  ```
+  sudo systemd daemon-reload
+  sudo systemd enable webapp
+  sudo systemd start webapp
+  ```
