@@ -1,6 +1,7 @@
 [Unit]
 Description=LED Matrix Display Web App
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 User=root
