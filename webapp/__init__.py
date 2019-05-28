@@ -107,3 +107,5 @@ def signal_handler(signal, frame):
 
 signal.signal(signal.SIGUSR1, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
+
+app.run()
