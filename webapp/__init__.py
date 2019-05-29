@@ -85,11 +85,6 @@ def illuminate():
     m.illuminate()
     return redirect(url_for('root'))
 
-@app.route('/hello')
-def hello():
-    """Test for static files."""
-    return redirect(url_for('static', filename='hello.txt'))
-
 def ourip():
     """Get our local(?) WiFi IP address."""
     return ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
