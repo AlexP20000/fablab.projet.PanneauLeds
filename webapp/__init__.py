@@ -85,7 +85,6 @@ def illuminate():
     m.illuminate()
     return redirect(url_for('root'))
 
-
 def ourip():
     """Get our local(?) WiFi IP address."""
     return ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
