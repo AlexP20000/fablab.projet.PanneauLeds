@@ -10,19 +10,19 @@ An [installation guide](guide.md) is available.
 
 # The architecture
 ```
-                                   +-----------+
-         HTTP  +----------+  WSGI  |           |
-Client <------>+ Gunicorn +<------>+  Web app  |
-               +----------+        |  (Flask)  |
-                                   |           |
-                                   +-----+-----+
-                                         ^
-                           Python object |
-                                         v
-                         +---------------+-----+
-                         |                     |
-                         |       Library       |
-                         |  (neopixel_matrix)  |
-                         |                     |
-                         +---------------------+
+                +--------------+      +---------------+
+                |              |      |               |
+  Web     HTTP  | Gunicon WSGI | WSGI | Flask Web App |
+browser <------>+ Web server   +<---->+    /webapp    |
+                |              |      |               |
+                +--------------+      +-------+-------+
+                                              ^
+                                 Python object|
+                                              v
+                                   +----------+-------+
+                                   |                  |
+                                   |      Library     |
+                                   | /neopixel_matrix |
+                                   |                  |
+                                   +------------------+
 ```
