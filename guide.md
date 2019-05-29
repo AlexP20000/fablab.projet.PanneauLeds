@@ -1,3 +1,7 @@
+# Setting up the Raspberry Pi
+- Use Raspbian Lite.
+- Connect the Raspberry Pi to a monitor.
+
 # Wifi
 On a Raspberry Pi you can simply use the `raspi-config` command. If you don't have that, the configuration is still pretty simple:
 
