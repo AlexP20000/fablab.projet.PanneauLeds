@@ -58,5 +58,6 @@ def sched_start():
 def sched_stop():
     """Terminate the auto sleep scheduling thread."""
     sched_stop_event.set()
-    sched_thread.join()
+    if sched_thread != None:
+        sched_thread.join()
     sched_stop_event.clear()
