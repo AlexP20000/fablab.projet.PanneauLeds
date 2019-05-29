@@ -12,7 +12,8 @@ from neopixel_matrix import color
 defcolor = color.color['amber']
 
 class NeoMatrix:
-    def __init__(self, x, y, pin=board.D18, font=bitmaps.font1, color=color.color):
+    def __init__(self, x, y, pin=board.D18,
+                 font=bitmaps.font1, color=color.color):
         """Initilizes an instance of NeoMatrix class
         x, y: Sizes on matrix in pixels.
         pin:  The pin used for signal. ex: board.D18"""
@@ -58,6 +59,7 @@ class NeoMatrix:
         #    self.scrollproc.terminate()
         #    self.scrollproc = None
         self.sentinel = True
+        self.killedevent.wait()
         #self.scrollproc = None
         self.clear()
         self.show()
