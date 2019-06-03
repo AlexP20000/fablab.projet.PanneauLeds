@@ -1,5 +1,4 @@
-# "bitmaps"
-# TODO: complete the font1
+"""Containts the 'bitmaps' to form a font."""
 
 font1 = {"width":  3, "height": 5,
          '0': ((1,1,1),
@@ -322,6 +321,11 @@ font1 = {"width":  3, "height": 5,
                (0,1,0),
                (0,0,0),
                (0,1,0)),
+         ';': ((0,0,0),
+               (0,1,0),
+               (0,0,0),
+               (0,1,0),
+               (1,0,0)),
          '?': ((1,1,0),
                (0,0,1),
                (0,1,0),

@@ -32,19 +32,22 @@ def text():
     #global currtext
     #global currbright
     #global currcolor
-    text = request.args.get('text')
     m.reset()
     # The ifs here are so we don't necessarily need all the arguments.
+    text = request.args.get('text')
     if text != None:
         p.currtext = request.args.get('text')
+
     bright = request.args.get('brightness')
     if bright != None:
         p.currbright = float(bright)
+    if 0 <= p.currbright <= 1:
+        m.strip.brightness = p.currbright
+    
     color = request.args.get('color')
     if color != None:
         p.currcolor = color
-    if 0 <= p.currbright <= 1:
-        m.strip.brightness = p.currbright
+
     m.text(p.currtext, m.color[p.currcolor])
     return redirect(url_for('root'))
 
