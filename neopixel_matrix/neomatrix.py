@@ -98,7 +98,7 @@ class NeoMatrix:
             self.insert_line(lines[i], 0, i*(self.font['height']+1), color)
         
             
-    def scroll_text(self, text, color=defcolor):
+    def scroll_text(self, text, color=defcolor, scrolldelay=0.25):
         """Scroll text vertically. This scrolls 1 pixel at a time.
         Works when there is more lines than the screen has.
         This function is an endless loop. Launch it in a separate process."""
@@ -125,7 +125,7 @@ class NeoMatrix:
             for l in range(len(linelist)):
                 self.insert_line(linelist[l], 0, (l*lineh)-voffset, color)    
             self.show()
-            time.sleep(0.25)
+            time.sleep(scrolldelay)
             # Upate the offset value.
             # After we scrolled 1 char worth, 
             if voffset == self.font['height']:
