@@ -1,3 +1,34 @@
+# Quick Install
+- Use Raspbian Lite
+- Connect the Raspberry Pi to a monitor and a keyboard.
+- Raspberry Pi default login is `pi` and password `raspberry`.
+- Type `sudo raspi-config`
+  - Set up your WiFi connection.
+  - Boot options -> Wait for network. (may help)
+  - Set up your timezone.
+- If NTP is blocked on your LAN, disable NTP service.
+  `sudo systemctl daemon-reload`  
+  `sudo systemctl stop systemd-timesyncd`  
+  `sudo systemctl disable systemd-timesyncd`  
+  `sudo apt ntpdate`  
+  Now reboot `sudo reboot`.  
+- Install the needed OS packages. `sudo apt install git python3-pip`
+- `mkdir ~/git; cd ~/git`
+- `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds" --depth 1`
+- Install library dependencies:
+  `sudo pip3 install adafruit-circuitpython-neopixel`
+- Install webapp dependencies:
+  `sudo pip3 install Flask gunicorn[gevent] schedule netifaces`
+- Deploy the app `./quickredeploy.sh` (A message about "fail to stop" is okay)
+
+# Quick Update
+- Connect to the device
+- `sudo apt update`  
+  `sudo apt full-upgrade`
+- Go to project git directory `cd ~/git/fablab.projet.PanneauLeds`.
+- `git pull`
+- `./quickredeploy.sh`
+
 # Setting up the Raspberry Pi
 - Use Raspbian Lite.
 - Connect the Raspberry Pi to a monitor.
