@@ -29,10 +29,10 @@
 
 # FAQ
 **Can I see and confirm my WiFi password? Without `raspi-config`?**  
-You can see and edit the WiFi settings directly: `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
+As [documented](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) on the RPi website, you can see and edit the WiFi settings directly: `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
 
 **Can I connect to the panel without an external WiFi AP? Can the panel have its own WiFi AP?**  
-You can set up the panel to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi website provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. The "add routing and masquerade" part proably isn't needed for our use case. The bridge part is also not needed. You can skip them.
+You can set up the panel to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi website provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. There is another guide [here](https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/). The "add routing and masquerade" part proably isn't needed for our use case. The bridge part is also not needed. You can skip them.
 
 Note that without any internet connection, the Raspberry Pi will not know the time so the functionality to automatically turn off the screen won't work properly.
 
