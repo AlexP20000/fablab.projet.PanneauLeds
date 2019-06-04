@@ -1,6 +1,6 @@
 This guide is for creating a simple WiFi access point on the Raspberry Pi 3.
 
-`sudo apt install dnsmasq hostapd`
+`sudo apt install dnsmasq hostapd`  
 `sudo nano /etc/dhcpcd.conf`
 ```
 interface wlan0
