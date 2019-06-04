@@ -2,8 +2,8 @@
 - Use Raspbian Lite.
 - Connect the Raspberry Pi to a monitor.
 
-# Wifi
-## Connect to an already existing access point
+# WiFi
+## Option 1: Connect to an already existing access point
 On a Raspberry Pi you can simply use the `raspi-config` command. If you don't have that, the configuration is still pretty simple:
 
 Let's add a WiFi network for our device to connect to. Edit `/etc/network/interfaces` as root and add the following. Double quotes in the password are important.
@@ -18,7 +18,7 @@ Next you can set up ssh so you don't need to attach a monitor and a keyboard to 
 ### Chaning the WiFi network
 If your WiFi settings changed, you simply redo the steps. On Raspberry Pi,  it is simpler to take out the SD Card and modify its contents from another machine.
 
-## Setting the RPi as its own WiFi point
+## Option 2: Setting the RPi as its own WiFi point
 You can also set up the device to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi webside provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. The "add routing and masquerade" part isn't needed for our use case. The bridge part is also not needed. You can skip them.
 
 # Time server (optional)
