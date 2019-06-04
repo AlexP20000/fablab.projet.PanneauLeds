@@ -5,13 +5,14 @@
   - Set up your WiFi connection
   - Boot options -> Wait for network (may help us)
   - Set up your timezone
+- Make sure the system is up to date: `sudo apt update && sudo apt full-upgrade` 
 - (optional) If NTP is blocked on your LAN, disable NTP service.  
   `sudo systemctl daemon-reload`  
   `sudo systemctl disable systemd-timesyncd`  
-  `sudo apt install ntpdate`  
-  Now reboot using `sudo reboot`
+  `sudo apt install ntpdate`
+- Now reboot using `sudo reboot`
 - Install the OS packages we'll need: `sudo apt install git python3-pip`
-- Create a directory for our project: `mkdir ~/git; cd ~/git`
+? Create a directory for our project: `mkdir ~/git; cd ~/git`
 - Download the project: `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds" --depth 1`
 - Install library dependencies:  
   `sudo pip3 install adafruit-circuitpython-neopixel`
