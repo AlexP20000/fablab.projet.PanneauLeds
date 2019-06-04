@@ -1,7 +1,6 @@
 # Installing
 - Use Raspbian Lite
-- Connect the Raspberry Pi to a monitor and a keyboard
-- Raspberry Pi default login is `pi` and password `raspberry`
+- Connect the Raspberry Pi to a monitor and a keyboard. Default login is `pi` and password `raspberry`.
 - Type `sudo raspi-config`
   - Set up your WiFi connection
   - Boot options -> Wait for network (may help us)
@@ -9,14 +8,14 @@
 - (optional) If NTP is blocked on your LAN, disable NTP service.  
   `sudo systemctl daemon-reload`  
   `sudo systemctl disable systemd-timesyncd`  
-  `sudo apt ntpdate`  
+  `sudo apt install ntpdate`  
   Now reboot using `sudo reboot`
-- Install the needed OS packages: `sudo apt install git python3-pip`
-- `mkdir ~/git; cd ~/git`
-- `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds" --depth 1`
-- Install library dependencies:
+- Install the OS packages we'll need: `sudo apt install git python3-pip`
+- Create a directory for our project: `mkdir ~/git; cd ~/git`
+- Download the project: `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds" --depth 1`
+- Install library dependencies:  
   `sudo pip3 install adafruit-circuitpython-neopixel`
-- Install webapp dependencies:
+- Install webapp dependencies:  
   `sudo pip3 install Flask gunicorn[gevent] schedule netifaces`
 - Deploy the app `./quickredeploy.sh` (A message about "fail to stop" is okay)
 
