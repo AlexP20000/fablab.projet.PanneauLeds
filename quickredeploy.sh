@@ -8,3 +8,4 @@ sudo cp -R ./webapp/ /opt/
 sudo mv /opt/webapp/webapp.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl start webapp.service
+sudo systemctl enable webapp.service
