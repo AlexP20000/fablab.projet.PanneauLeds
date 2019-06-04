@@ -33,11 +33,13 @@ You can see and edit the WiFi settings directly: `sudo nano /etc/wpa_supplicant/
 **Can I connect to the panel without an external WiFi AP? Can the panel have its own WiFi AP?**  
 You can set up the panel to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi website provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. The "add routing and masquerade" part proably isn't needed for our use case. The bridge part is also not needed. You can skip them.
 
+Note that without any internet connection, the Raspberry Pi will not know the time so the functionality to automatically turn off the screen won't work properly.
+
 **Any way to install without git?**  
 You can manually copy the files.
 - Put the `webapp` and the `neopixel_matrix` directories inside `/opt/`
 - Put the systemd service file, `webapp.service` inside `/etc/systemd/system/`
 - Make the webapp start automatically on boot and start it now:  
-  `sudo systemd daemon-reloa`  
+  `sudo systemd daemon-reload`  
   `sudo systemd enable webapp`  
   `sudo systemd start webapp`
