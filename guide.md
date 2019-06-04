@@ -19,7 +19,7 @@ Next you can set up ssh so you don't need to attach a monitor and a keyboard to 
 If your WiFi settings changed, you simply redo the steps. On Raspberry Pi,  it is simpler to take out the SD Card and modify its contents from another machine.
 
 ## Option 2: Setting the RPi as its own WiFi point
-You can also set up the device to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi webside provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. The "add routing and masquerade" part isn't needed for our use case. The bridge part is also not needed. You can skip them.
+You can also set up the device to host its own WiFi access point. This is useful in cases where there are no other suitable access points around. Raspberry Pi website provides a [guide](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md) for creating a simple WiFi access point on the Raspberry Pi 3. The "add routing and masquerade" part isn't needed for our use case. The bridge part is also not needed. You can skip them.
 
 # Time server (optional)
 The NTP server was blocked on my network so as an alternative, I used `htpdate` which gets the time using HTTP.
