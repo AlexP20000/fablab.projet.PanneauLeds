@@ -22,8 +22,8 @@ def root():
                            text=p.currtext,
                            bright=p.currbright,
                            color=p.currcolor,
-                           morninghour=scheduled.morninghour,
-                           eveninghour=scheduled.eveninghour,
+                           morninghour=scheduled.onhour,
+                           eveninghour=scheduled.offhour,
                            sched_alive=scheduled.sched_thread.isAlive())
 
 
