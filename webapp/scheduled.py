@@ -44,8 +44,10 @@ def fill():
 def sched_clear():
     schedule.clear()
 
+
 def stop():
     sched_stop_event.set()
+
     
 def isalive():
     """Is our scheduler thread alive? Retrun True if yes."""
