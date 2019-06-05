@@ -23,7 +23,8 @@ def root():
                            bright=p.currbright,
                            color=p.currcolor,
                            morninghour=scheduled.morninghour,
-                           eveninghour=scheduled.eveninghour)
+                           eveninghour=scheduled.eveninghour,
+                           sched_alive=scheduled.sched_thread.isAlive())
 
 
 @app.route('/text')

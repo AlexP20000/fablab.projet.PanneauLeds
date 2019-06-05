@@ -55,6 +55,7 @@
 <br>
 <fieldset style="max-width:max-content">
   <legend>Auto sleep</legend>
+  Automatic sleep is {% if sched_alive %}enabled{% else %}disabled{% endif %}. 
   Every day the screen will automatically turn off at {{ eveninghour }} and turn back on at {{ morninghour }}. After the screen turns off, you can turn it back on by simply using it.
 </fieldset>
 {% endblock %}
