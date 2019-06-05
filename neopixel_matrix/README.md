@@ -11,7 +11,7 @@ m.matrix[5][10] = 0x00ff00
 m.matrix[10][15] = (255, 0, 255)
 m.show()
 ```
-To clear the screen we use `reset()`. It does some extra things we need and there is no neet for a `show()` after it:
+To clear the screen we use `reset()`. As opposed to `clear()`, it does some extra things we need and there is no neet for a `show()` after it:
 ```
 m.reset()
 ```
@@ -28,7 +28,7 @@ Now let's display the same text but in another color:
 ```
 m.text("Hello world!", (0, 255, 0))
 ```
-Long text that doesn't fit on the screen in scrolled vertically:
+Long text that doesn't fit on the screen is scrolled vertically:
 ```
 m.text("Big brown fox jumps over the lazy dog! Let's make this text a tiny little bit longer.")
 ```
