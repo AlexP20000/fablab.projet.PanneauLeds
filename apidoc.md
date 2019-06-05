@@ -66,7 +66,7 @@ Control if and when the screen will automatically turn off and on.
   `onhour`: The hour at which the screen will turn on.
 
 - **Notes**  
-   The format for hour is in for of "HH:MM". Make sure to take into account the URL percent encoding.
+   The format for hour is in the form of "HH:MM". Make sure to take into account the URL percent encoding.
 
 - **Examples**  
   Disable this functionality: `/sched?enable=0`
