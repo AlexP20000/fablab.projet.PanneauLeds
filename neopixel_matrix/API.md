@@ -1,3 +1,5 @@
+(Incomplete)
+
 # Neomatrix_pixel Library API
 
 ## `NeoMatrix(x, y, pin, font, color)`
@@ -22,14 +24,6 @@ The object to create and control a matrix of NeoPixels.
   m = neopixel_matrix.NeoMatrix(30, 25)
   ```
 
-### `x`
-
-Width of the screen.
-	
-### `y`
-
-Height of the screen.
-	
 ### `text(text, color)`
 
 Display text on the screen. If the text doesn't fit on the screen it will be scrolled vertically.
