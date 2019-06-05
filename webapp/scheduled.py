@@ -20,7 +20,6 @@ sched_stop_event = threading.Event()
 
 def screenon():
     """Turn on the screen with brightness set in currbright."""
-    #global currbright
     m.strip.brightness = p.currbright
     m.strip.show()
     print("Turned on the screen")
