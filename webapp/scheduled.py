@@ -31,10 +31,9 @@ def loop():
     while True:
         schedule.run_pending()
         if sched_stop_event.is_set():
-            schedule.clear()
-            sched_thread = None
             break
         time.sleep(1)
+
 
 def fill():
     """Start the auto sleep scheduling thread."""
@@ -45,6 +44,9 @@ def fill():
 def sched_clear():
     schedule.clear()
 
+def stop():
+    sched_stop_event.set()
+    
 def isalive():
     """Is our scheduler thread alive? Retrun True if yes."""
     j = schedule.jobs

@@ -83,6 +83,7 @@ def illuminate():
     m.illuminate()
     return redirect(url_for('root'))
 
+
 @app.route('/sched')
 def sched():
     """Control if and when the screen will automatically turn off and on."""
@@ -98,6 +99,7 @@ def sched():
         scheduled.fill()
     return redirect(url_for('root'))
 
+
 def ourip():
     """Get our local(?) WiFi IP address."""
     return ni.ifaddresses('wlan0')[ni.AF_INET][0]['addr']
@@ -106,14 +108,18 @@ def ourip():
 # Display the local IP on startup so poeple can find us.
 p.currtext = ourip()
 m.text(p.currtext)
+
 # Set the default brightness on startup.
 m.strip.brightness = p.currbright
+
 # Start the automatic turning on and off of the screen.
-scheduled.fill
+scheduled.fill()
 scheduled.sched_thread.start()
+
 
 # Handle signals
 def signal_handler(signal, frame):
+    scheduled.stop()
     m.reset()
     sys.exit()
 
