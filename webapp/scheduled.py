@@ -55,7 +55,7 @@ def isalive():
         return True
 
 
-# Hours at which the screen will be automatically turned on or off.
+# Defalt hours at which the screen will be automatically turned on or off.
 onhour = "09:00"
 offhour = "17:00"
 # The event to stop the thread.
