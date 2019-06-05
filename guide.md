@@ -12,8 +12,8 @@
   `sudo apt install ntpdate`
 - Now reboot using `sudo reboot`
 - Install the OS packages we'll need: `sudo apt install git python3-pip`
-? Create a directory for our project: `mkdir ~/git; cd ~/git`
-- Download the project: `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds" --depth 1`
+- Create a directory for our project: `mkdir ~/git; cd ~/git`
+- Download the project: `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds"`
 - Install library dependencies:  
   `sudo pip3 install adafruit-circuitpython-neopixel`
 - Install webapp dependencies:  
