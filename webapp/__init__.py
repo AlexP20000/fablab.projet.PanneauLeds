@@ -89,9 +89,9 @@ def sched():
     reqenable = request.args.get('enable')
     scheduled.onhour = request.args.get('onhour')
     scheduled.offhour = request.args.get('offhour')
-    scheduled.sched_stop()
+    scheduled.sched_clear()
     if reqenable != '0':
-        scheduled.sched_start()
+        scheduled.sched_fill()
     return redirect(url_for('root'))
 
 def ourip():

@@ -7,14 +7,6 @@ import threading
 from objects import m
 import packagevars as p
 
-# Hours at which the screen will be automatically turned on or off.
-onhour = "09:00"
-offhour = "17:00"
-# The event to stop the thread.
-sched_stop_event = threading.Event()
-# Initialize the thread as s global variable
-sched_thread = None
-
 
 def screenon():
     """Turn on the screen with brightness set in currbright."""
@@ -45,20 +37,14 @@ def sched_loop():
         time.sleep(1)
 
 
-def sched_start(onhour=onhour, offhour=offhour):
+def sched_fill():
     """Start the auto sleep scheduling thread."""
     schedule.every().day.at(onhour).do(screenon)
     schedule.every().day.at(offhour).do(screenoff)
-    sched_thread = threading.Thread(target=sched_loop, daemon=True)
-    sched_thread.start()
 
     
-def sched_stop():
-    """Terminate the auto sleep scheduling thread."""
-    sched_stop_event.set()
-    if sched_thread != None: #and sched_thread.isAlive() == True:
-        sched_thread.join()
-    sched_stop_event.clear()
+def sched_clear():
+    schedule.clear()
 
 def isalive():
     """Is our scheduler thread alive? Retrun True if yes."""
@@ -68,5 +54,12 @@ def isalive():
         return False
     else:
         return True
-        
-    
+
+
+# Hours at which the screen will be automatically turned on or off.
+onhour = "09:00"
+offhour = "17:00"
+# The event to stop the thread.
+sched_stop_event = threading.Event()
+# Initialize the thread
+sched_thread = threading.Thread(target=sched_loop, daemon=True)
