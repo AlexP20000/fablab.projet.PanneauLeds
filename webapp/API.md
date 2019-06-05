@@ -2,7 +2,8 @@
 
 All the requests are made using the GET method unless noted otherwise.
 
-
+|                |                                                                                                                           |
+|----------------|---------------------------------------------------------------------------------------------------------------------------|
 | URL            | `/text`                                                                                                                   |
 | Description    | Display text on the screen. If the text doesn't fit on the screen it will be scrolled vertically.                         |
 | URL Parameters | `text`: The text to be displayed. Only US ASCII characters are supported. All text will be displayed as upper case.       |
