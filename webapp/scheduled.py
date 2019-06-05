@@ -55,5 +55,8 @@ def sched_stop():
 morninghour = "08:00"
 eveninghour = "17:00"
 
+# Initialize the thread
+sched_thread = threading.Thread(target=sched_loop, daemon=True)
+
 # The event to stop the thread.
 sched_stop_event = threading.Event()
