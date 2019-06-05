@@ -24,6 +24,8 @@ class NeoMatrix:
         # You can access its goodies from this obeject.
         self.strip = neopixel.NeoPixel(pin, x*y, auto_write=False)
         # This creates the 2D list that represents our matrix.
+        # You can modify individual pixels by modifying self.matrix[y][x]
+        # Don't forget to self.show() for changes to take effect.
         self.matrix = striptomatrix.striptomatrix_zigzag_topright(self.strip, x)
         # The default font.
         self.font = font
