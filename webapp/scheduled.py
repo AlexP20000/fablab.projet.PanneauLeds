@@ -36,7 +36,7 @@ def loop():
             break
         time.sleep(1)
 
-def sched_fill():
+def fill():
     """Start the auto sleep scheduling thread."""
     schedule.every().day.at(onhour).do(screenon)
     schedule.every().day.at(offhour).do(screenoff)
