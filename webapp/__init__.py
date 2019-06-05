@@ -87,8 +87,8 @@ def illuminate():
 def sched():
     """Control if and when the screen will automatically turn off and on."""
     reqenable = request.args.get('enable')
-    scheduled.morninghour = request.args.get('onhour')
-    scheduled.eveninghour = request.args.get('offhour')
+    scheduled.onhour = request.args.get('onhour')
+    scheduled.offhour = request.args.get('offhour')
     scheduled.sched_stop()
     if reqenable != '0':
         scheduled.sched_start()
