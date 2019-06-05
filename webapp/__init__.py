@@ -24,7 +24,7 @@ def root():
                            color=p.currcolor,
                            morninghour=scheduled.onhour,
                            eveninghour=scheduled.offhour,
-                           sched_alive=scheduled.sched_thread.isAlive())
+                           sched_alive=scheduled.isalive())
 
 
 @app.route('/text')
