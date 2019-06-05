@@ -1,5 +1,3 @@
-This is the API documentation.
-
 # Web app client API
 
 All the requests are made using the GET method unless noted otherwise.
