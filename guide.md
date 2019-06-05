@@ -1,16 +1,16 @@
 # Installing
-- Use Raspbian Lite
+- OS: Installation was tested on Raspbian Stretch Lite
 - Connect the Raspberry Pi to a monitor and a keyboard. Default login is `pi` and password `raspberry`.
 - Type `sudo raspi-config`
   - Set up your WiFi connection
   - Boot options -> Wait for network (may help us)
   - Set up your timezone
 - Make sure the system is up to date: `sudo apt update && sudo apt full-upgrade` 
-- (optional) If NTP is blocked on your LAN, disable NTP service.  
+- (optional) If NTP is blocked on your network, disable NTP service:  
   `sudo systemctl daemon-reload`  
   `sudo systemctl disable systemd-timesyncd`  
   `sudo apt install ntpdate`
-- Now reboot using `sudo reboot`
+- Now reboot: `sudo reboot`
 - Install the OS packages we'll need: `sudo apt install git python3-pip`
 - Create a directory for our project: `mkdir ~/git; cd ~/git`
 - Download the project: `git clone "https://github.com/AlexP20000/fablab.projet.PanneauLeds"`
@@ -18,12 +18,12 @@
   `sudo pip3 install adafruit-circuitpython-neopixel`
 - Install webapp dependencies:  
   `sudo pip3 install Flask gunicorn[gevent] schedule netifaces`
-- Deploy the app `./quickredeploy.sh` (A message about "fail to stop" is okay)
+- Deploy the app `./quickredeploy.sh` (A message about "fail to stop" is okay here)
 
 # Updating
 - Connect to the device
 - Update the OS: `sudo apt update && sudo apt full-upgrade`
-- Go to project git directory: `cd ~/git/fablab.projet.PanneauLeds`
+- Go to project's git directory: `cd ~/git/fablab.projet.PanneauLeds`
 - Download update: `git pull`
 - Install the update: `./quickredeploy.sh`
 
