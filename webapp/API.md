@@ -2,6 +2,15 @@
 
 All the requests are made using the GET method unless noted otherwise.
 
+
+| URL            | `/text`                                                                                                                   |
+| Description    | Display text on the screen. If the text doesn't fit on the screen it will be scrolled vertically.                         |
+| URL Parameters | `text`: The text to be displayed. Only US ASCII characters are supported. All text will be displayed as upper case.       |
+|                | `brightness`: Set the brightness of the screen. Accepts a number between 0 and 1.                                         |
+|                | `color`: Set the color of the text. Accepts a name of a color. For a list of colors see [here](neopixel_matrix/color.py). |
+| Examples       | Display "Hello world!" in amber color at medium brightness.                                                               |
+|                | `/text?text=Hello+world%21&color=amber&brightness=0.5`                                                                    |
+
 ## Display text
 Display text on the screen. If the text doesn't fit on the screen it will be scrolled vertically.
 
