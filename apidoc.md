@@ -7,7 +7,8 @@ All the requests are made using the GET method unless noted otherwise.
 ## Auto sleep
 Control if and when the screen will automatically turn off and on.
 
-- **URL**: `/sched`
+- **URL**  
+  `/sched`
 
 - **URL Parameters**  
   `enable`: If set to `0` this functionality will be disabled. Otherwise it will be enabled.
@@ -16,7 +17,7 @@ Control if and when the screen will automatically turn off and on.
   
   `onhour`: The hour at which the screen will turn on.
 
-- **Notes**
+- **Notes**  
    The format for hour is in for of "HH:MM". Make sure to take into account the URL percent encoding.
 
 - **Examples**  
