@@ -91,7 +91,7 @@ def sched():
     scheduled.offhour = request.args.get('offhour')
     scheduled.sched_clear()
     if reqenable != '0':
-        scheduled.sched_fill()
+        scheduled.fill()
     return redirect(url_for('root'))
 
 def ourip():
@@ -105,11 +105,11 @@ m.text(p.currtext)
 # Set the default brightness on startup.
 m.strip.brightness = p.currbright
 # Start the automatic turning on and off of the screen.
-scheduled.sched_start()
+scheduled.fill
+scheduled.sched_thread.start()
 
 # Handle signals
 def signal_handler(signal, frame):
-    scheduled.sched_stop()
     m.reset()
     sys.exit()
 

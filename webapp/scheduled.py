@@ -24,7 +24,7 @@ def screenoff():
     print("Turned off the screen")
 
     
-def sched_loop():
+def loop():
     """The loop to be run to turn the screen on and off acoording to schedule.
     It can be terminated by setting the sched_stop_event.
     """
@@ -35,7 +35,6 @@ def sched_loop():
             sched_thread = None
             break
         time.sleep(1)
-
 
 def sched_fill():
     """Start the auto sleep scheduling thread."""
@@ -62,4 +61,4 @@ offhour = "17:00"
 # The event to stop the thread.
 sched_stop_event = threading.Event()
 # Initialize the thread
-sched_thread = threading.Thread(target=sched_loop, daemon=True)
+sched_thread = threading.Thread(target=loop, daemon=True)
