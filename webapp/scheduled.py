@@ -8,16 +8,6 @@ from objects import m
 import packagevars as p
 
 
-# Hours at which the screen will be automatically turned on or off.
-morninghour = "08:00"
-eveninghour = "17:00"
-
-# Initialize the thread as nothing for now.
-sched_thread = None
-# The event to stop the thread.
-sched_stop_event = threading.Event()
-
-
 def screenon():
     """Turn on the screen with brightness set in currbright."""
     m.strip.brightness = p.currbright
@@ -47,7 +37,7 @@ def sched_loop():
             schedule.clear()
             break
 
-    
+        
 def sched_start():
     """Start the auto sleep scheduling thread."""
     sched_thread = threading.Thread(target=sched_loop, daemon=True)
@@ -60,3 +50,10 @@ def sched_stop():
     if sched_thread != None:
         sched_thread.join()
     sched_stop_event.clear()
+
+# Hours at which the screen will be automatically turned on or off.
+morninghour = "08:00"
+eveninghour = "17:00"
+
+# The event to stop the thread.
+sched_stop_event = threading.Event()
