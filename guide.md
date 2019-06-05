@@ -6,7 +6,7 @@
   - Boot options -> Wait for network (may help us)
   - Set up your timezone
 - Make sure the system is up to date: `sudo apt update && sudo apt full-upgrade` 
-- (optional) If NTP is blocked on your network, disable NTP service:  
+- (optional) If NTP is blocked on your network, disable NTP the service:  
   `sudo systemctl daemon-reload`  
   `sudo systemctl disable systemd-timesyncd`  
   `sudo apt install ntpdate`
