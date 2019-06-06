@@ -1,4 +1,4 @@
-color = {'amber'  : (255, 80,  0  ),
+color = {'amber'  : 0xff8000,
          'red'    : (255, 0,   0  ),
          'green'  : (0,   255, 0  ),
          'blue'   : (0,   0,   255),

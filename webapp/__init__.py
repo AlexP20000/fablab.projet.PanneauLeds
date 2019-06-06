@@ -7,7 +7,6 @@ import sys
 import signal
 # Import our stuff
 from objects import m
-#from packagewide import currtext, currbright, currcolor
 import packagevars as p
 import scheduled
 
@@ -18,20 +17,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
+    """The root page of this app."""
     return render_template('root.html',
                            text=p.currtext,
                            bright=p.currbright,
                            color=p.currcolor,
-                           morninghour=scheduled.morninghour,
-                           eveninghour=scheduled.eveninghour)
+                           onhour=scheduled.onhour,
+                           offhour=scheduled.offhour,
+                           sched_alive=scheduled.isenabled())
 
 
 @app.route('/text')
 def text():
     """Display text on the screen."""
-    #global currtext
-    #global currbright
-    #global currcolor
     m.reset()
     # The ifs here are so we don't necessarily need all the arguments.
     text = request.args.get('text')
@@ -55,7 +53,6 @@ def text():
 @app.route('/reset')
 def reset():
     """Reset (clear) the screen."""
-    #global currtext
     p.currtext = ''
     m.reset()
     return redirect(url_for('root'))
@@ -64,7 +61,6 @@ def reset():
 @app.route('/ip')
 def ip():
     """Display our local WiFI IP."""
-    #global currtext
     p.currtext = ourip()
     m.reset()
     m.text(p.currtext, m.color[p.currcolor])
@@ -81,12 +77,28 @@ def lulz():
 @app.route('/illuminate')
 def illuminate():
     """Full white illumination mode."""
-    #global currbright
     m.reset()
     p.currbright = 1
     m.strip.brightness = p.currbright
     m.illuminate()
     return redirect(url_for('root'))
+
+
+@app.route('/sched')
+def sched():
+    """Control if and when the screen will automatically turn off and on."""
+    reqenable = request.args.get('enable')
+    reqonhour = request.args.get('onhour')
+    reqoffhour = request.args.get('offhour')
+    scheduled.clear()
+    if reqenable == '1':
+        if reqonhour:
+            scheduled.onhour = reqonhour
+        if reqoffhour:
+            scheduled.offhour = reqoffhour
+        scheduled.fill()        
+    return redirect(url_for('root'))
+
 
 def ourip():
     """Get our local(?) WiFi IP address."""
@@ -96,16 +108,19 @@ def ourip():
 # Display the local IP on startup so poeple can find us.
 p.currtext = ourip()
 m.text(p.currtext)
+
 # Set the default brightness on startup.
 m.strip.brightness = p.currbright
+
 # Start the automatic turning on and off of the screen.
-scheduled.sched_start()
+scheduled.start()
+
 
 # Handle signals
 def signal_handler(signal, frame):
-    scheduled.sched_stop()
+    scheduled.stop()
     m.reset()
-    sys.exit()
+    sys.exit(0)
 
 signal.signal(signal.SIGUSR1, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)

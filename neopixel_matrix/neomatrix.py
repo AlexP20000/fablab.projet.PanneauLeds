@@ -24,6 +24,8 @@ class NeoMatrix:
         # You can access its goodies from this obeject.
         self.strip = neopixel.NeoPixel(pin, x*y, auto_write=False)
         # This creates the 2D list that represents our matrix.
+        # You can modify individual pixels by modifying self.matrix[y][x]
+        # Don't forget to self.show() for changes to take effect.
         self.matrix = striptomatrix.striptomatrix_zigzag_topright(self.strip, x)
         # The default font.
         self.font = font
@@ -140,8 +142,7 @@ class NeoMatrix:
     def text(self, text, color=defcolor):
         """General text command.
 
-        If there is space on the screen just display the text, if the text
-        doesn't fit, scroll it vertically.
+        If the text doesn't fit on the screen it will be scrolled vertically.
         """
         # Line height including spacing.
         lineh = self.font['height'] + 1
@@ -164,7 +165,7 @@ class NeoMatrix:
             self.show()
 
     def lulz(self):
-        """Activate lulz mode."""
+        """Fill the screen with an animation of colorful pixels."""
         self.reset()
         self.scrollproc = threading.Thread(target=self.lulzloop)
         self.killedevent.wait()

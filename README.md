@@ -6,7 +6,7 @@ This project is made of 2 main components:
 - A Python library that takes a strip of NeoPixels and transforms it into a 2D matrix so you can create a screen. It can also display and scroll text. It builds upon the [NeoPixel library for Raspberry Pi](https://learn.adafruit.com/neopixels-on-raspberry-pi). (neomatrix_pixel)
 - A Web app to control the display from other devices of the local network. It too is written in Python and it uses the Flask framework. (webapp)
 
-An [installation guide](guide.md) is available.
+An [installation guide](GUIDE.md) is available. Web app [API doc](webapp/API.md) is also available.
 
 # The architecture
 ```
