@@ -55,20 +55,23 @@
 <br>
 <fieldset style="max-width:max-content">
   <legend>Auto sleep</legend>
-  Automatic sleep is {% if sched_alive %}enabled. Every day the screen will automatically turn off at {{ eveninghour }} and turn back on at {{ morninghour }}. After the screen turns off, you can turn it back on by simply using it.{% else %}disabled{% endif %}.
+  <p>
+    Automatic sleep is {%if sched_alive%}<b>enabled</b>.<br>Every day the screen will automatically turn off at {{offhour}} and turn back on at {{onhour}}. You can still use the screen after it turns off{%else%}<b>disabled</b>{%endif%}.
+  </p>
   <form method="get" action="./sched">
     <label>Enable</label>
     <input type="checkbox" name="enable" value="1" {% if sched_alive %}checked{% endif%}>
     <br>
+    <small>
+      Note, the hour must be in form of "HH:MM". The leading zero needs to be included. For example 8:00 needs to be 08:00.</small>
+    <br>
     <label>On hour</label>
-    <input type="text" name="onhour" size="6">
+    <input type="text" name="onhour" size="6" {%if onhour%}value="{{onhour}}"{%endif%}>
     <br>
     <label>Off hour</label>
-    <input type="text" name="offhour" size="6">
+    <input type="text" name="offhour" size="6" {%if offhour%}value="{{offhour}}"{%endif%}>
     <br>
-    <input type="submit">
+    <input type="submit" value="Update">
   </form>
-  <br>
-
 </fieldset>
 {% endblock %}

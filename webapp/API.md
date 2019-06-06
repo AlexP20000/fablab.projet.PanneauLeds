@@ -57,7 +57,7 @@ Control if and when the screen will automatically turn off and on.
   `/sched`
 
 - **URL Parameters**  
-  `enable`: If set to `0` this functionality will be disabled. Otherwise it will be enabled.
+  `enable`: If set to `on` this functionality will be enabled. Otherwise it will be disabled.
   
   `offhour`: The hour at which the screen will turn off.
   

@@ -1,4 +1,6 @@
-"""For scheduling tasks such as turning off the display in the evening."""
+"""Autosleep.
+For scheduling tasks such as turning off the display in the evening.
+"""
 
 import schedule
 import time
@@ -36,21 +38,31 @@ def loop():
 
 
 def fill():
-    """Start the auto sleep scheduling thread."""
+    """Fill in the task to be scheduled."""
     schedule.every().day.at(onhour).do(screenon)
     schedule.every().day.at(offhour).do(screenoff)
 
     
-def sched_clear():
+def clear():
+    """Clear all scheduled tasks."""
     schedule.clear()
 
 
 def stop():
+    """Stop the scheduler thread."""
     sched_stop_event.set()
+    try:
+        sched_thread.join()
+    except:
+        pass
 
+def start():
+    """Start the autosleep thread."""
+    fill()
+    sched_thread.start()
     
-def isalive():
-    """Is our scheduler thread alive? Retrun True if yes."""
+def isenabled():
+    """Is our scheduler enabled? Retrun True if yes."""
     j = schedule.jobs
     print(j)
     if not j:

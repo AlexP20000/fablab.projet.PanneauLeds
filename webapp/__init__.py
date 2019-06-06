@@ -22,9 +22,9 @@ def root():
                            text=p.currtext,
                            bright=p.currbright,
                            color=p.currcolor,
-                           morninghour=scheduled.onhour,
-                           eveninghour=scheduled.offhour,
-                           sched_alive=scheduled.isalive())
+                           onhour=scheduled.onhour,
+                           offhour=scheduled.offhour,
+                           sched_alive=scheduled.isenabled())
 
 
 @app.route('/text')
@@ -90,13 +90,13 @@ def sched():
     reqenable = request.args.get('enable')
     reqonhour = request.args.get('onhour')
     reqoffhour = request.args.get('offhour')
-    if reqonhour:
-        scheduled.onhour = reqonhour
-    if reqoffhour:
-        scheduled.offhour = reqoffhour
-    scheduled.sched_clear()
-    if reqenable != '0':
-        scheduled.fill()
+    scheduled.clear()
+    if reqenable == '1':
+        if reqonhour:
+            scheduled.onhour = reqonhour
+        if reqoffhour:
+            scheduled.offhour = reqoffhour
+        scheduled.fill()        
     return redirect(url_for('root'))
 
 
@@ -113,15 +113,14 @@ m.text(p.currtext)
 m.strip.brightness = p.currbright
 
 # Start the automatic turning on and off of the screen.
-scheduled.fill()
-scheduled.sched_thread.start()
+scheduled.start()
 
 
 # Handle signals
 def signal_handler(signal, frame):
     scheduled.stop()
     m.reset()
-    sys.exit()
+    sys.exit(0)
 
 signal.signal(signal.SIGUSR1, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
