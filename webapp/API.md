@@ -69,5 +69,5 @@ Control if and when the screen will automatically turn off and on.
 - **Examples**  
   Disable this functionality: `/sched`
   
-  Enable, turn the display on at 9am and turn it of at 5pm.  
+  Enable, turn the display on at 9am and turn it of at 5pm:  
   `/sched?enable=1&onhour=09%3A00&offhour=17%3A00`
