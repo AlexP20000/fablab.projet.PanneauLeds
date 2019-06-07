@@ -16,14 +16,16 @@ class NeoMatrix:
                  font=bitmaps.font1, color=color.color):
         """Initilizes an instance of NeoMatrix class
         x, y: Sizes on matrix in pixels.
-        pin:  The pin used for signal. ex: board.D18"""
+        pin:  The pin used for signal. ex: board.D18
+        color: The dictionnary that contains color definitions.
+        """
         # Size of the matrix in pixels.
         self.x = x
         self.y = y
         # This NeoPixel object creates a LED strip.
         # You can access its goodies from this obeject.
         self.strip = neopixel.NeoPixel(pin, x*y, auto_write=False)
-        # This creates the 2D list that represents our matrix.
+        # Create the 2D list that represents our matrix.
         # You can modify individual pixels by modifying self.matrix[y][x]
         # Don't forget to self.show() for changes to take effect.
         self.matrix = striptomatrix.striptomatrix_zigzag_topright(self.strip, x)

@@ -1,6 +1,6 @@
 I recommned checking out the [library](https://learn.adafruit.com/neopixels-on-raspberry-pi) this library is based on to get a better understanding. 
 
-This library is used through an object. Let's initialize an object represeting a screen of 30 by 25 NeoPixels:
+This library is used through an object. Let's initialize an object represeting a screen of 30 by 25 NeoPixels, GPIO pin 18 is used by default:
 ```
 import neopixel_matrix
 m = neopixel_matrix.NeoMatrix(30, 25)
