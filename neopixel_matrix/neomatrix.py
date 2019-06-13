@@ -1,8 +1,7 @@
 import board
 import neopixel
 import time
-import random # for lulz
-#from multiprocessing import Process
+import random # for lulz function
 import threading
 from neopixel_matrix import striptomatrix
 from neopixel_matrix import bitmaps
@@ -13,11 +12,31 @@ defcolor = color.color['amber']
 
 class NeoMatrix:
     def __init__(self, x, y, pin=board.D18,
-                 font=bitmaps.font1, color=color.color):
+                 font=bitmaps.font1, color=color.color,
+                 zigzag=True, topright=True):
         """Initilizes an instance of NeoMatrix class
-        x, y: Sizes on matrix in pixels.
+
+        x, y: Sizes of matrix in pixels.
         pin:  The pin used for signal. ex: board.D18
-        color: The dictionnary that contains color definitions.
+        color: The dictionary that contains color definitions.
+        zigzag, topright: How is the LED strip wired to be a 2D screen?
+            Zigzag or straight? Is the 1st pixel on top right or top left? 
+            straight, topleft:
+            1 2 3
+            4 5 6
+            7 8 9
+            zigzag, topleft:
+            1 2 3
+            6 5 4
+            7 8 9
+            straight, topright:
+            3 2 1
+            6 5 4
+            9 8 7
+            zigzag, topright:
+            3 2 1
+            4 5 6
+            9 8 7
         """
         # Size of the matrix in pixels.
         self.x = x
@@ -25,10 +44,15 @@ class NeoMatrix:
         # This NeoPixel object creates a LED strip.
         # You can access its goodies from this obeject.
         self.strip = neopixel.NeoPixel(pin, x*y, auto_write=False)
+        # We need to use different functions to transform between the LED
+        # strip and the 2D screen depending on how the strip is wired. 
+        funcs = striptomatrix.decide_functions(zigzag, topright)
+        self.striptomatrix = funcs[0]
+        self.matrixtostrip = funcs[1]
         # Create the 2D list that represents our matrix.
         # You can modify individual pixels by modifying self.matrix[y][x]
         # Don't forget to self.show() for changes to take effect.
-        self.matrix = striptomatrix.striptomatrix_zigzag_topright(self.strip, x)
+        self.matrix = self.striptomatrix(self.strip, x)
         # The default font.
         self.font = font
         # The scrollng process
@@ -44,7 +68,7 @@ class NeoMatrix:
 
     def show(self):
         """Makes what's on the matrix show up on the strip."""
-        tmpstrip = striptomatrix.matrixtostrip_zigzag_topright(self.matrix)
+        tmpstrip = self.matrixtostrip(self.matrix)
         for i in range(len(tmpstrip)):
             self.strip[i] = tmpstrip[i]
         self.strip.show()

@@ -1,4 +1,4 @@
-# Wiring:
+# Wiring patterns:
 # straight_topleft:
 # 1 2 3
 # 4 5 6
@@ -15,10 +15,6 @@
 # 3 2 1
 # 4 5 6
 # 9 8 7
-#
-# TODO:
-# - Being able to define starting corner and if wiring of lines is straight
-#   or zigzag. Expose this option in the object initialization.
 
 
 from itertools import chain
@@ -37,7 +33,6 @@ def reverselistin2dlist_even(matrix):
     ex: Reverse a[0], a[2], a[4]...
     """
     for i in range(len(matrix)):
-        # Bitwise and to check odd/even
         if not i & 1:
             matrix[i] = list(reversed(matrix[i]))
 
@@ -47,7 +42,6 @@ def reverselistin2dlist_odd(matrix):
     ex: Reverse a[1], a[3], a[5]...
     """
     for i in range(len(matrix)):
-        # Bitwise and to check odd/even
         if i & 1:
             matrix[i] = list(reversed(matrix[i]))
 
@@ -71,3 +65,13 @@ def striptomatrix_straight_topright(strip, x):
 def matrixtostrip_straight_topright(matrix):
     a = matrix.copy()
     return list(chain.from_iterable(a))
+
+
+def decide_functions(zigzag, topright):
+    """Take a wiring layout and return a tuple of functions:
+    (striptomatrix, matrixtostrip)
+    """
+    if zigzag and topright:
+        return (striptomatrix_zigzag_topright, matrixtostrip_zigzag_topright)
+    elif not zigzag and topright:
+        return (striptomatrix_straight_topright, matrixtostrip_straight_topright)
