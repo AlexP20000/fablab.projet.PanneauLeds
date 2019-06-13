@@ -51,7 +51,7 @@ class NeoMatrix:
 
     def clear(self):
         """Go through the matrix and set the pixels to dark.
-        Note: show() is needed for this to show up on screen. (now doing show()
+        Note: show() is needed for this to show up on screen. (not doing show()
         here is useful in other functions."""
         for y in range(len(self.matrix)):
             for x in range(len(self.matrix[0])):
