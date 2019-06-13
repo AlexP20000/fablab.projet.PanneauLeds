@@ -59,12 +59,8 @@ class NeoMatrix:
 
     def reset(self):
         """Reset the screen, terminate the scrolling process."""
-        #if self.scrollproc != None:
-        #    self.scrollproc.terminate()
-        #    self.scrollproc = None
         self.sentinel = True
         self.killedevent.wait()
-        #self.scrollproc = None
         self.clear()
         self.show()
 
@@ -107,7 +103,7 @@ class NeoMatrix:
         Works when there is more lines than the screen has.
         This function is an endless loop. Launch it in a separate process."""
         # Line height including spacing.
-        lineh = self.font['height']+1
+        lineh = self.font['height'] + 1
         # Calculate characters we can have per line.
         chars_per_line = self.x // (self.font['width'] + 1)
         # Split the text into its lines.
@@ -122,7 +118,7 @@ class NeoMatrix:
         while self.sentinel == False:
             self.clear()
             
-            # Uncomment these to understand how this works.
+            # Uncomment to understand how this works.
             #print('{0} voffset={1}'.format(linelist, voffset))
 
             # Insert the lines, taking into account the vertical offset. 

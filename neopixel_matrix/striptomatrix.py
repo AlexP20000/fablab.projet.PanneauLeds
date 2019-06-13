@@ -1,5 +1,4 @@
 # TODO:
-# - Add functions necessary for transforming a strip of LEDs into a matrix.
 # - Being able to define starting corner and if wiring of lines is straight
 #   or zigzag.
 from itertools import chain
