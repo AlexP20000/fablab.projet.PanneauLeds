@@ -38,7 +38,7 @@ def reverselistin2dlist_even(matrix):
     """
     for i in range(len(matrix)):
         # Bitwise and to check odd/even
-        if i and 1:
+        if not i & 1:
             matrix[i] = list(reversed(matrix[i]))
 
 
@@ -48,12 +48,14 @@ def reverselistin2dlist_odd(matrix):
     """
     for i in range(len(matrix)):
         # Bitwise and to check odd/even
-        if not i and 1:
+        if i & 1:
             matrix[i] = list(reversed(matrix[i]))
 
 
 def striptomatrix_zigzag_topright(strip, x):
-    return reverselistin2dlist_even(listto2d(strip, x))
+    a = listto2d(strip, x)
+    reverselistin2dlist_even(a)
+    return a
 
 
 def matrixtostrip_zigzag_topright(matrix):
