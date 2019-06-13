@@ -55,9 +55,9 @@ class NeoMatrix:
         self.matrix = self.striptomatrix(self.strip, x)
         # The default font.
         self.font = font
-        # The scrollng process
+        # The scrollng process/thread
         self.scrollproc = None
-        # Include the colors in the object
+        # Include a dictionary of colors in our object.
         self.color = color
         # Sentinel, set True to shut down the scroll thread.
         self.sentinel = False
