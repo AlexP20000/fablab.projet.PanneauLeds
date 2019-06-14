@@ -20,6 +20,13 @@
   `sudo pip3 install Flask gunicorn[gevent] schedule netifaces`
 - Deploy the app `./quickredeploy.sh` (A message about "fail to stop" is okay here)
 
+# Using
+- Plug in the power
+- Wait a little bit
+- The local WiFi IP address is displayed on the screen
+- Connect to this IP address using a Web browser
+- You can now control the screen
+
 # Updating
 - Connect to the device
 - Update the OS: `sudo apt update && sudo apt full-upgrade`

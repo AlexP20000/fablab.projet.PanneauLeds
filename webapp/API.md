@@ -64,7 +64,7 @@ Control if and when the screen will automatically turn off and on.
   `onhour`: The hour at which the screen will turn on.
 
 - **Notes**  
-   The format for hour is in the form of "HH:MM". For example 8:00 needs to be 08:00. Also make sure to take into account the URL percent encoding.
+  The format for hour is in the form of "HH:MM". For example 8:00 needs to be 08:00. Also make sure to take into account the URL [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) for ":". The tools you use will most likely handle this for you.
 
 - **Examples**  
   Disable this functionality: `/sched`
